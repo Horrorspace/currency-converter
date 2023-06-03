@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,159 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum CurrencyCodes {
+  AUD
+  AZN
+  GBP
+  AMD
+  BYN
+  BGN
+  BRL
+  HUF
+  VND
+  HKD
+  GEL
+  DKK
+  AED
+  USD
+  EUR
+  EGP
+  INR
+  IDR
+  KZT
+  CAD
+  QAR
+  KGS
+  CNY
+  MDL
+  NZD
+  NOK
+  PLN
+  RON
+  XDR
+  SGD
+  TJS
+  THB
+  TRY
+  TMT
+  UZS
+  UAH
+  CZK
+  SEK
+  CHF
+  RSD
+  ZAR
+  KRW
+  JPY
+  RUB
+}
+
+model Currency {
+  currencyId  Int            @id @default(autoincrement()) @map("id")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  code        CurrencyCodes  @unique
+  name        String
+}
+
+model RubExchageRate {
+  rubExchageRateId  Int       @id @default(autoincrement()) @map("id")
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  date              DateTime  @unique @db.Date
+  AUD               Float
+  AZN               Float
+  GBP               Float
+  AMD               Float
+  BYN               Float
+  BGN               Float
+  BRL               Float
+  HUF               Float
+  VND               Float
+  HKD               Float
+  GEL               Float
+  DKK               Float
+  AED               Float
+  USD               Float
+  EUR               Float
+  EGP               Float
+  INR               Float
+  IDR               Float
+  KZT               Float
+  CAD               Float
+  QAR               Float
+  KGS               Float
+  CNY               Float
+  MDL               Float
+  NZD               Float
+  NOK               Float
+  PLN               Float
+  RON               Float
+  XDR               Float
+  SGD               Float
+  TJS               Float
+  THB               Float
+  TRY               Float
+  TMT               Float
+  UZS               Float
+  UAH               Float
+  CZK               Float
+  SEK               Float
+  CHF               Float
+  RSD               Float
+  ZAR               Float
+  KRW               Float
+  JPY               Float
+}
+
+model ThbExchageRate {
+  thbExchageRateId  Int       @id @default(autoincrement()) @map("id")
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  date              String    @unique
+  AUD               Float
+  AZN               Float
+  GBP               Float
+  AMD               Float
+  BYN               Float
+  BGN               Float
+  BRL               Float
+  HUF               Float
+  VND               Float
+  HKD               Float
+  GEL               Float
+  DKK               Float
+  AED               Float
+  USD               Float
+  EUR               Float
+  EGP               Float
+  INR               Float
+  IDR               Float
+  KZT               Float
+  CAD               Float
+  QAR               Float
+  KGS               Float
+  CNY               Float
+  MDL               Float
+  NZD               Float
+  NOK               Float
+  PLN               Float
+  RON               Float
+  XDR               Float
+  SGD               Float
+  TJS               Float
+  TRY               Float
+  TMT               Float
+  UZS               Float
+  UAH               Float
+  CZK               Float
+  SEK               Float
+  CHF               Float
+  RSD               Float
+  ZAR               Float
+  KRW               Float
+  JPY               Float
+  RUB               Float
 }
