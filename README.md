@@ -1,73 +1,45 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Elementary Software Solutions Test
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Clone repository
 
-## Description
+- To clone repository run `git clone https://github.com/Horrorspace/elementary-software-solutions-test`.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Run in container
 
-## Installation
+- Run `docker-compose up` to run app in container.
 
-```bash
-$ yarn install
-```
+## Install dependencies
 
-## Running the app
+- Run `cd elementary-software-solutions-test` to go in app directory.
+- Run `yarn install --frozen-lockfile` to install dependencies.
 
-```bash
-# development
-$ yarn run start
+## Configuration
 
-# watch mode
-$ yarn run start:dev
+- Run `cp ./.example.env ./.env` to create configuration file, and then set up values of variables in this file.
 
-# production mode
-$ yarn run start:prod
-```
+### Environment variables description
+- API_HOST: Host on which API should run (example - `0.0.0.0`);
+- API_PORT: Port on which API should run (example - `3000`);
+- APP_MODE: Mode of application (available values - `development`, `production`);
+- DATABASE_URL: PostgreSQL connection string (example - `postgres://user:pass@localhost:5432/db`);
+- RUB_API_URL: RUB API URL (example - `https://example.com`);
+- THB_API_KEY: THB API key (example - `h0wwdcak3ie8q6mvwkh5apxgd9mrb`);
+- THB_API_URL: THB API URL (example - `https://example.com`);
 
-## Test
+## Setting up databases
 
-```bash
-# unit tests
-$ yarn run test
+- Run `yarn db:migrate` to set up indexes and tables in PostgreSQL.
+- Run `yarn db:generate` to generate client code and types for PostgreSQL.
 
-# e2e tests
-$ yarn run test:e2e
+## Documentation
 
-# test coverage
-$ yarn run test:cov
-```
+- If application runs with environment variable `APP_MODE` set in `development` value, API documentation must be available on `/doc` path. Open it in any browser to see API documentation.
 
-## Support
+## Running locally in watch mode
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Run `yarn start:dev` and after that server will run on port and address which set in configuration file.
 
-## Stay in touch
+## Build the app
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Run `yarn build` and after that application will be built in dist directory.
