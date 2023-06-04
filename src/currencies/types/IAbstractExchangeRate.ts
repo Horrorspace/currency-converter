@@ -1,8 +1,7 @@
 import { IExchangeRates } from './IExchangeRates';
+import { IGetExchangeRate } from './IGetExchangeRate';
 
 /**
  * Interface of abstract exchange rate
  */
-export interface IAbstractExchangeRate extends IExchangeRates {
-  date: Date;
-}
+export type IAbstractExchangeRate = IExchangeRates & IGetExchangeRate;
