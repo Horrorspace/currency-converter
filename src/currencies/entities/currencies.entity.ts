@@ -1,8 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ArrayNotEmpty, IsArray, IsNotEmptyObject, IsObject, ValidateNested } from 'class-validator';
-import { Expose, Type } from 'class-transformer';
+import { ArrayNotEmpty, IsArray, IsEnum, IsString, MinLength } from 'class-validator';
+import { Expose } from 'class-transformer';
 import { ICurrencies } from '../../shared/currencies/ICurrencies';
-import { CurrencyEntity } from './currency.entity';
+import { currencyCode } from '../../shared/currencies/currency-code';
+import { currencyCodes } from '../../shared/currencies/currency-codes';
+import { currencyCodeNames } from '../../shared/currencies/currency-code-names';
 
 /**
  * Currencies entity (contains list of all currencies which are available)
@@ -10,14 +12,14 @@ import { CurrencyEntity } from './currency.entity';
 export class CurrenciesEntity implements ICurrencies {
   @IsArray()
   @ArrayNotEmpty()
-  @IsObject({ each: true })
-  @IsNotEmptyObject({ nullable: false }, { each: true })
-  @ValidateNested({ each: true })
-  @Type(() => CurrencyEntity)
+  @IsString({ each: true })
+  @MinLength(1, { each: true })
+  @IsEnum(currencyCodeNames, { each: true })
   @Expose()
   @ApiProperty({
     description: 'List of available currencies',
-    type: CurrencyEntity,
+    enum: currencyCodeNames,
+    isArray: true,
   })
-  currencies!: CurrencyEntity[];
+  currencies!: currencyCode[];
 }
