@@ -5,10 +5,6 @@
 
 - To clone repository run `git clone https://github.com/Horrorspace/elementary-software-solutions-test`.
 
-## Run in container
-
-- Run `docker-compose up` to run app in container.
-
 ## Install dependencies
 
 - Run `cd elementary-software-solutions-test` to go in app directory.
@@ -27,14 +23,18 @@
 - THB_API_KEY: THB API key (example - `h0wwdcak3ie8q6mvwkh5apxgd9mrb`);
 - THB_API_URL: THB API URL (example - `https://example.com`);
 
-## Setting up databases
+## Run in container
 
-- Run `yarn db:migrate` to set up indexes and tables in PostgreSQL.
-- Run `yarn db:generate` to generate client code and types for PostgreSQL.
+- Run `docker-compose up` to run app in container.
 
 ## Documentation
 
 - If application runs with environment variable `APP_MODE` set in `development` value, API documentation must be available on `/doc` path. Open it in any browser to see API documentation.
+
+## Setting up databases
+
+- Run `yarn db:migrate` to set up indexes and tables in PostgreSQL.
+- Run `yarn db:generate` to generate client code and types for PostgreSQL.
 
 ## Running locally in watch mode
 
