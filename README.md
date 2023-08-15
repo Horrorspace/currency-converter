@@ -1,9 +1,9 @@
-# Elementary Software Solutions Test
+# Currency Converter
 
 
 ## Clone repository
 
-- To clone repository run `git clone https://github.com/Horrorspace/elementary-software-solutions-test`.
+- To clone repository run `git clone https://github.com/Horrorspace/currency-converter`.
 
 ## Install dependencies
 
